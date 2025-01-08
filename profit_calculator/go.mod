@@ -1,3 +1,3 @@
-module github.com/RivTechProjects/profit-calculator
+module github.com/RivTechProjects/learning-golang/profit_calculator
 
 go 1.23.4
