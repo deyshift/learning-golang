@@ -1,3 +1,3 @@
-module github.com/RivTechProjects/golangprog
+module github.com/RivTechProjects/investment-calculator
 
 go 1.23.4
