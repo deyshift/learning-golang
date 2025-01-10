@@ -5,9 +5,10 @@ import (
 	"math"
 )
 
+const inflationRate = 2.5 // use const keyword to declare a constant
+
 // main entry point of the program, execution starts here
 func main() {
-	const inflationRate = 2.5    // use const keyword to declare a constant
 	var investmentAmount float64 // use var keyword to declare a variable and specify the type when not initializing
 	var years float64
 	expectedReturnRate := 5.5 // use assignment operator to infer type and initialize the variable - kept this for example
@@ -21,9 +22,17 @@ func main() {
 	fmt.Print("Enter the expected return rate: ")
 	fmt.Scan(&expectedReturnRate)
 
-	futureValue := investmentAmount * math.Pow(1+expectedReturnRate/100, years)
-	futureRealValue := futureValue / math.Pow(1+inflationRate/100, years)
+	// futureValue := investmentAmount * math.Pow(1+expectedReturnRate/100, years)
+	// futureRealValue := futureValue / math.Pow(1+inflationRate/100, years)
+	futureValue, futureRealValue := calculateFutureValues(investmentAmount, expectedReturnRate, years)
 
 	fmt.Printf("The future value of the investment is: %.2f\n", futureValue)
 	fmt.Printf("The future real value of the investment is: %.2f\n", futureRealValue)
+}
+
+func calculateFutureValues(investmentAmount, expectedReturnRate, years float64) (float64, float64) {
+	// return investmentAmount * math.Pow(1+expectedReturnRate/100, years)
+	fv := investmentAmount * math.Pow(1+expectedReturnRate/100, years)
+	rfv := fv / math.Pow(1+inflationRate/100, years)
+	return fv, rfv
 }
