@@ -15,9 +15,9 @@ jobs:
     strategy:
       matrix:
         module:
-          - bank
-          - investment_calculator
-          - profit_calculator
+          - learning_golang/bank
+          - learning_golang/investment_calculator
+          - learning_golang/profit_calculator
 
     steps:
     - uses: actions/checkout@v4
