@@ -12,13 +12,14 @@ It provides the following features:
 package main
 
 import (
-	"errors"
 	"fmt"
-	"os"
-	"strconv"
+
+	"github.com/rivtechprojects/learning-golang/file_handling"
 )
 
-var accountBalance, err = readBalanceFromFile()
+const accountBalanceFile = "balance.txt"
+
+var accountBalance, err = file_handling.ReadDataFromFile(accountBalanceFile)
 var running = true
 
 func main() {
@@ -36,14 +37,6 @@ func main() {
 		choice := getUserChoice()
 		handleChoice(choice)
 	}
-}
-
-func displayMenu() {
-	fmt.Println("What would you like to do?")
-	fmt.Println("1. Check balance")
-	fmt.Println("2. Deposit money")
-	fmt.Println("3. Withdraw money")
-	fmt.Println("4. Exit")
 }
 
 func getUserChoice() int {
@@ -85,7 +78,7 @@ func depositMoney() {
 	fmt.Printf("You have deposited $%.2f\n", depositAmount)
 	accountBalance += depositAmount
 	fmt.Println("Your new account balance is $", accountBalance)
-	writeBalanceToFile(accountBalance)
+	file_handling.WriteDataToFile(accountBalance, accountBalanceFile)
 }
 
 func withdrawMoney() {
@@ -104,39 +97,10 @@ func withdrawMoney() {
 	fmt.Printf("You have withdrawn $%.2f\n", withdrawAmount)
 	accountBalance -= withdrawAmount
 	fmt.Println("Your new account balance is $", accountBalance)
-	writeBalanceToFile(accountBalance)
+	file_handling.WriteDataToFile(accountBalance, accountBalanceFile)
 }
 
 func exit() {
 	fmt.Println("Thank you for using the bank application!")
 	running = false
-}
-
-func readBalanceFromFile() (float64, error) {
-	// Read the account balance from a file
-	data, err := os.ReadFile("balance.txt")
-	if err != nil {
-		return 1000, errors.New("Failed to read balance from file")
-	}
-
-	balance, err := strconv.ParseFloat(string(data), 64)
-	if err != nil {
-		return 1000, errors.New("Failed to read balance from file")
-	}
-
-	return balance, nil
-}
-
-func writeBalanceToFile(balance float64) {
-	// Convert the balance to a string
-	balanceStr := fmt.Sprintf("%.2f", balance)
-
-	// Write the account balance to a file
-	err := os.WriteFile("balance.txt", []byte(balanceStr), 0644)
-	if err != nil {
-		fmt.Println("Error writing balance to file:", err)
-		return
-	}
-
-	fmt.Println("Balance successfully written to file.")
 }
