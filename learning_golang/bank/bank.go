@@ -14,6 +14,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/Pallinder/go-randomdata"
 	"github.com/rivtechprojects/learning-golang/file_handling"
 )
 
@@ -31,6 +32,7 @@ func main() {
 	}
 
 	fmt.Println("Welcome to the Go bank application!")
+	fmt.Println("Your account number is:", randomdata.RandStringRunes(10))
 
 	for running {
 		displayMenu()
