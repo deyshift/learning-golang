@@ -19,12 +19,12 @@ func isSubsequence(s string, t string) bool {
 	return false
 }
 
-func main() {
-	// Example Usage
-	println(isSubsequence("ace", "abcde"))  // Output: true
-	println(isSubsequence("aec", "abcde"))  // Output: false
-	println(isSubsequence("", "abcde"))     // Output: true
-	println(isSubsequence("ace", ""))       // Output: false
-	println(isSubsequence("abc", "aabbcc")) // Output: true
-	println(isSubsequence("axc", "ahbgdc")) // Output: false
-}
+// func main() {
+// 	// Example Usage
+// 	println(isSubsequence("ace", "abcde"))  // Output: true
+// 	println(isSubsequence("aec", "abcde"))  // Output: false
+// 	println(isSubsequence("", "abcde"))     // Output: true
+// 	println(isSubsequence("ace", ""))       // Output: false
+// 	println(isSubsequence("abc", "aabbcc")) // Output: true
+// 	println(isSubsequence("axc", "ahbgdc")) // Output: false
+// }
