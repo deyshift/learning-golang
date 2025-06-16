@@ -1,3 +1,5 @@
+//go:build ignore
+
 package main
 
 func isSubsequence(s string, t string) bool {
@@ -19,12 +21,31 @@ func isSubsequence(s string, t string) bool {
 	return false
 }
 
-// func main() {
-// 	// Example Usage
-// 	println(isSubsequence("ace", "abcde"))  // Output: true
-// 	println(isSubsequence("aec", "abcde"))  // Output: false
-// 	println(isSubsequence("", "abcde"))     // Output: true
-// 	println(isSubsequence("ace", ""))       // Output: false
-// 	println(isSubsequence("abc", "aabbcc")) // Output: true
-// 	println(isSubsequence("axc", "ahbgdc")) // Output: false
-// }
+func init() {
+	// Test cases for isSubsequence function
+	println("Testing isSubsequence function:")
+
+	// Test case 1: Basic subsequence
+	println("'ace' in 'abcde' ->", isSubsequence("ace", "abcde")) // Expected: true
+
+	// Test case 2: Not a subsequence
+	println("'aec' in 'abcde' ->", isSubsequence("aec", "abcde")) // Expected: false
+
+	// Test case 3: Empty string (always subsequence)
+	println("'' in 'abcde' ->", isSubsequence("", "abcde")) // Expected: true
+
+	// Test case 4: Subsequence in empty string
+	println("'ace' in '' ->", isSubsequence("ace", "")) // Expected: false
+
+	// Test case 5: Multiple occurrences
+	println("'abc' in 'aabbcc' ->", isSubsequence("abc", "aabbcc")) // Expected: true
+
+	// Test case 6: Characters exist but wrong order
+	println("'axc' in 'ahbgdc' ->", isSubsequence("axc", "ahbgdc")) // Expected: false
+
+	println("All isSubsequence tests completed!")
+}
+
+func main() {
+	// The init function will run automatically before main
+}

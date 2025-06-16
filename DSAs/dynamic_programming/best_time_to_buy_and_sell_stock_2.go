@@ -1,3 +1,5 @@
+//go:build ignore
+
 package main
 
 import "fmt"
@@ -34,4 +36,10 @@ func init() {
 	prices4 := []int{5}
 	result4 := maxProfit2(prices4)
 	fmt.Printf("Test 4 - Prices: %v, Max Profit: %d (Expected: 0)\n", prices4, result4)
+
+	println("All maxProfit2 tests completed!")
+}
+
+func main() {
+	// The init function will run automatically before main
 }

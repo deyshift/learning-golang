@@ -1,3 +1,5 @@
+//go:build ignore
+
 package main
 
 func maxProfit(prices []int) int {
@@ -16,7 +18,7 @@ func maxProfit(prices []int) int {
 		currentProfit := prices[i] - minPrice
 
 		if currentProfit > maxProfit {
-			currentProfit = maxProfit
+			maxProfit = currentProfit
 		}
 	}
 
@@ -62,4 +64,10 @@ func init() {
 	prices7 := []int{3, 3, 3, 3}
 	result7 := maxProfit(prices7)
 	println("Input: [3,3,3,3] -> Max Profit:", result7) // Expected: 0 (no price change)
+
+	println("All test cases completed!")
+}
+
+func main() {
+	// The init function will run automatically before main
 }
