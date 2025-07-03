@@ -16,7 +16,7 @@ func IsPalindrome(s string) bool {
 		for left < right && !isAlphanumeric(rune(s[right])) {
 			right--
 		}
-		if strings.ToLower(string(s[left])) != strings.ToLower(string(s[right])) {
+		if !strings.EqualFold(string(s[left]), string(s[right])) {
 			return false
 		}
 		left++
